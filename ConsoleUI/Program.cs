@@ -32,21 +32,71 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            var vehicles = new List<Vehicle>();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+            Car car1 = new Car()
+            {
+                Year = "2002",
+                Make = "Toyota",
+                Model = "Corolla",
+                HasTrunk = true
+            };
+            Motorcycle motor1 = new Motorcycle()
+            {
+                Year = "2020",
+                Make = "Honda",
+                Model = "CBR1000RR-R Fireblade",
+                HasSideCart = false
+            };
+            Vehicle car2 = new Car()
+            {
+                Year = "2012",
+                Make = "Honda",
+                Model = "CR-V",
+                HasTrunk = true
+            };
+            Vehicle motor2 = new Motorcycle()
+            {
+                Year = "2020",
+                Make = "BMW",
+                Model = "F900 XR",
+                HasSideCart = false
+            };
 
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
-            // Call each of the drive methods for one car and one motorcycle
+            vehicles.Add(car1);
+            vehicles.Add(motor1);
+            vehicles.Add(car2);
+            vehicles.Add(motor2);
 
-            #endregion            
+            foreach (var v in vehicles)
+            {
+                Console.WriteLine(v.Year);
+                Console.WriteLine(v.Make);
+                Console.WriteLine(v.Model);
+                Console.WriteLine();
+            }
+
+            // Call each of the drive methods for one car and one motorcycle
+            Console.WriteLine("Car 1's Turn: ");
+            car1.DriveAbstract();
+            car1.DriveVirtual();
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Motorcycle 1's Turn: ");
+            motor1.DriveAbstract();
+            motor1.DriveVirtual();
+
+
+            #endregion
             Console.ReadLine();
         }
     }
